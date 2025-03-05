@@ -6,6 +6,8 @@ pub enum ItemTypes{
     Done(Done),
     Pending(Pending)
 }
+/// > A factory is an object for creating other objects
+/// So this will be used to create an install of the state of the different items based on the state entered
 pub fn todo_factory(item_type:&str, item_title: &str) -> Result<ItemTypes, &'static str>{
     if item_type.to_lowercase() == "pending"{
         let item = Pending::new(item_title);

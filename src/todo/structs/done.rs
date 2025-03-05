@@ -9,7 +9,7 @@ impl Done {
         let base = Base::new(title, "done");
         Done { super_stuct: base }
     }
-    pub fn get_status(&self) -> String {
+    pub fn _get_status(&self) -> String {
         self.super_stuct.get_status()
     }
     pub fn get_title(&self) -> String{

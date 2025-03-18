@@ -2,7 +2,7 @@
 This project is to build a todo app.
 
 ### Features
-Serd: It uses serde to format the data in human understanable
+Serde: It uses serde to format the data in human understandable
 
 Setup
 -----

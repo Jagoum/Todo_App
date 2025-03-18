@@ -9,7 +9,6 @@ pub trait Edit {
         write_to_file("./state.json", state);
         println!("\n\n{} is being set to done\n", title);
         println!("Status: \"Done\"\n");
-
     }
 
     fn set_to_pending(&self, title: &String, state: &mut Map<String, Value>) {
@@ -18,4 +17,6 @@ pub trait Edit {
         println!("\n\n{} is being  set to pending\n", title);
         println!("Status: \"Pending\"\n");
     }
+
+    fn set_to_todo(&self, title: &String, state: &mut Map<String, Value>) {}
 }

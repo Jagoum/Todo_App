@@ -1,37 +1,38 @@
+mod process;
 mod state;
 mod todo;
-mod process;
-use std::env;
-use state::read_file;
+use process::process_input;
 use serde_json::value::Value;
 use serde_json::Map;
+use state::read_file;
+use std::env;
 use todo::todo_factory;
-use process::process_input;
 fn main() {
     let args: Vec<String> = env::args().collect();
-    if args.len() < 3{
+    if args.len() < 3 {
         println!("Invalid number of args");
         println!("Please enter two args ie, command [create delete edit ], and title ");
         return;
     }
     let command: &String = &args[1];
     let title: &String = &args[2];
-    let state: Map<String, Value> =
-    read_file("./state.json");
+    let target_state = &args[3];
+    let state: Map<String, Value> = read_file("./state.json");
     let status: String;
     match &state.get(*&title) {
-    Some(result) => {
-    status = result.to_string().replace('\"', "");
+        Some(result) => {
+            status = result.to_string().replace('\"', "");
+        }
+        None => {
+            status = "todo".to_string();
+        }
     }
-    None=> {
-    status = "pending".to_string();
-    }
-    }
-    let item = todo_factory(&status,
-    title).expect(&status);
-    process_input(item, command.to_string(), &state);
-    /*
-     println!("Hello, world!");
+    let item = todo_factory(&status, title).expect(&status);
+    process_input(item, command.to_string(), &state, target_state.to_string());
+}
+
+/*
+    println!("Hello, world!");
     let done = Done::new("Shopping");
     let _todo_item = match todo_factory(&done.get_status(), &done.get_title()) {
         Ok(data) => match data {
@@ -47,13 +48,10 @@ fn main() {
             return;
         }
     };
-     
-     println!("{}", done.get_title());
+
+    println!("{}", done.get_title());
     // println!("{}\n", done.get_status());
     // let pending = Pending::new("Laundry");
     // println!("{}", pending.get_title());
     // println!("{}", pending.get_status());
 */
-
-
-}

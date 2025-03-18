@@ -9,6 +9,11 @@ use todo::todo_factory;
 use process::process_input;
 fn main() {
     let args: Vec<String> = env::args().collect();
+    if args.len() < 3{
+        println!("Invalid number of args");
+        println!("Please enter two args ie, command [create delete edit ], and title ");
+        return;
+    }
     let command: &String = &args[1];
     let title: &String = &args[2];
     let state: Map<String, Value> =

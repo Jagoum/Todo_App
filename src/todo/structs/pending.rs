@@ -27,7 +27,7 @@ impl Edit for Pending{
     // }
 }
 impl Get for Pending {
-    // fn get(&self,titile: &str) {
+    // fn get(&self,title: &str) {
         
     // }
 }

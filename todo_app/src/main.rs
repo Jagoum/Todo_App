@@ -16,7 +16,8 @@ fn main() {
     }
     let command: &String = &args[1];
     let title: &String = &args[2];
-    let target_state = &args[3];
+    let binding: String = "todo".to_string();
+    let target_state = args.get(3).unwrap_or(&binding);
     let state: Map<String, Value> = read_file("./state.json");
     let status: String;
     match &state.get(*&title) {

@@ -36,3 +36,11 @@ docker built -t your-image-name .
 docker run create NewTask # to create a new task
 
 ```
+Optionally you could also run the project using [docker compose](https://docs.docker.com/reference/cli/docker/compose/). The command is seen below
+
+```sh
+docker compose up --build
+docker compose run build_image create "New Job"
+```
+
+

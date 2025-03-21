@@ -16,10 +16,11 @@ fn main() {
     }
     let command: &String = &args[1];
     let title: &String = &args[2];
-    let binding: String = "todo".to_string();
-    let target_state = args.get(3).unwrap_or(&binding);
+    let default_state: String = "todo".to_string();
+    let target_state = args.get(3).unwrap_or(&default_state);
     let state: Map<String, Value> = read_file("./state.json");
     let status: String;
+    
     match &state.get(*&title) {
         Some(result) => {
             status = result.to_string().replace('\"', "");

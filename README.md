@@ -18,8 +18,8 @@ If you want to run this project locally run the following commands
 ```sh
 cargo run
 ```
-Building Using Docker
----------------------
+#### Building Using Docker
+
 You can also build this project using docker without cloning the repository by 
 running the commands below
 Before that you need to ensure you have [docker](https://www.docker.com/) installed and running
@@ -28,8 +28,8 @@ Before that you need to ensure you have [docker](https://www.docker.com/) instal
 docker pull ghcr.io/Jagoum/Todo_App
 docker run create NewTask # to create a new task
 ```
-Building The Docker Image 
--------------------------
+#### Building The Docker Image 
+
 Optionally if you want to build the docker image yourself you can run the following commands 
 ```sh
 docker built -t your-image-name .

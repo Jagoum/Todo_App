@@ -30,3 +30,21 @@ jobs:
             run: cargo build --verbose
           - name: Run tests
             run: cargo test --verbose
+     
+          - name: Login to Container Registry 
+            uses: docker/login-action@v3
+            with:  
+              registry: ghcr.io 
+              username: ${{ github.actor }}  
+              password: ${{ secrets.TOKEN }}  
+
+          - name: Build and push Docker image
+            uses: docker/build-push-action@v6
+            with:
+              context: .
+              push: true
+              tags: | 
+                ghcr.io/${{ secrets.REPOSITORY }}/${{github.REPOSITORY}}sha-${{ github.sha }}
+                ghcr.io/${{ secrets.REPOSITORY }}/${{github.REPOSITORY}}:branch-${{ github.ref_name }}
+                ghcr.io/${{ secrets.REPOSITORY }}/${{github.REPOSITORY}}:latest
+              platforms: linux/amd64,linux/arm64 

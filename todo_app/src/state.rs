@@ -6,9 +6,17 @@ use std::{
 use serde_json::{json, Map, Value};
 
 pub fn read_file(file_name: &str) -> Map<String, Value> {
-    let mut file = match OpenOptions::new().read(true).write(true).create(true).open(file_name) {
-        Ok(file) => {file},
-        Err(err) => {eprintln!("Could not Open or even create file");return Err("()").unwrap();},
+    let mut file = match OpenOptions::new()
+        .read(true)
+        .write(true)
+        .create(true)
+        .open(file_name)
+    {
+        Ok(file) => file,
+        Err(err) => {
+            eprintln!("Could not Open or even create file");
+            return Err("()").unwrap();
+        }
     };
 
     let mut file_data = String::new();

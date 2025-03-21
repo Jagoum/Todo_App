@@ -8,8 +8,8 @@ pub struct Todo {
 }
 
 impl Todo {
-    pub fn new(title: &str) -> Todo {
-        let super_struct = Base::new(title, "Todo");
+    pub fn new(id:u32, title: &str) -> Todo {
+        let super_struct = Base::new(id, title, "Todo");
         Todo { super_struct }
     }
     pub fn get_status(&self) -> String {
@@ -17,6 +17,9 @@ impl Todo {
     }
     pub fn get_title(&self) -> String {
         self.super_struct.get_title()
+    }
+    pub fn get_id(&self) -> u32 {
+        self.super_struct.get_id()
     }
 }
 

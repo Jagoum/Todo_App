@@ -8,8 +8,8 @@ pub struct Done {
 }
 
 impl Done {
-    pub fn new(title: &str) -> Done {
-        let base = Base::new(title, "Done");
+    pub fn new(id: u32, title: &str) -> Done {
+        let base = Base::new(id,title, "Done");
         Done { super_struct: base }
     }
     pub fn _get_status(&self) -> String {
@@ -20,13 +20,14 @@ impl Done {
     pub fn get_title(&self) -> String {
         self.super_struct.get_title()
     }
+    pub fn get_id(&self) -> u32{
+        self.super_struct.get_id()
+    }
 }
 
 impl Get for Done {
     /*
-    fn get(&self,title: &str) {
-
-    // }  // this functions have already been implemented in the Get trait so there is no need to implement it again
+    // this functions have already been implemented in the Get trait so there is no need to implement it again
     // This function was implemented directly in the trait because all the structs that call the function will implement it thesame way it is .
     // So implementing Directly in the trait reduces code duplication */
 }

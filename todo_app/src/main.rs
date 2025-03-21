@@ -20,6 +20,7 @@ fn main() {
     let target_state = args.get(3).unwrap_or(&default_state);
     let state: Map<String, Value> = read_file("./state.json");
     let status: String;
+    let id = 0;
     
     match &state.get(*&title) {
         Some(result) => {
@@ -29,7 +30,7 @@ fn main() {
             status = "todo".to_string();
         }
     }
-    let item = todo_factory(&status, title).expect(&status);
+    let item = todo_factory(id,&status, title).expect(&status);
     process_input(item, command.to_string(), &state, target_state.to_string());
 }
 

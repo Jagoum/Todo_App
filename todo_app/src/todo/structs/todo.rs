@@ -9,7 +9,7 @@ pub struct Todo {
 
 impl Todo {
     pub fn new(title: &str) -> Todo {
-        let super_struct = Base::new(title, "Todo");
+        let super_struct = Base::new( title, "Todo");
         Todo { super_struct }
     }
     pub fn get_status(&self) -> String {
@@ -18,9 +18,10 @@ impl Todo {
     pub fn get_title(&self) -> String {
         self.super_struct.get_title()
     }
+
 }
 
-impl Create for Todo {}
-impl Edit for Todo {}
-impl Delete for Todo {}
-impl Get for Todo {}
+impl Create for Todo {} // The Job Created Is initially set to todo
+impl Edit for Todo {} // A Job Can be edit from todo to done or pending
+impl Delete for Todo {} // A create Job can be deleted
+impl Get for Todo {} // We can get the status of a job with status todo

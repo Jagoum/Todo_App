@@ -10,19 +10,21 @@ pub struct Pending {
 }
 
 impl Pending {
-    /// Sets the instance created to pending
-    pub fn new(title: &str) -> Pending {
+    ///  creates  pending instance
+    pub fn new( title: &str) -> Pending {
         let super_struct = Base::new(title, "Pending");
         Pending { super_struct }
     }
-    pub fn get_status(&self) -> String {
+    /// This gives the status of the Pending Job
+    pub fn _get_status(&self) -> String {
         self.super_struct.get_status()
     }
+    /// THis function gives the title of the Pending Job
     pub fn get_title(&self) -> String {
         self.super_struct.get_title()
     }
 }
 
-impl Edit for Pending {}
-impl Delete for Pending {}
-impl Get for Pending {}
+impl Edit for Pending {} // It is also possible to change a pending Job to other states like todo and done
+impl Delete for Pending {} // It is possible to delete a Job when it is pending
+impl Get for Pending {} // It is Possible to Get the status of a job that is pending

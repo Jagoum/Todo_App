@@ -8,8 +8,8 @@ pub struct Done {
 }
 
 impl Done {
-    pub fn new(id: u32, title: &str) -> Done {
-        let base = Base::new(id,title, "Done");
+    pub fn new(title: &str) -> Done {
+        let base = Base::new(title, "Done");
         Done { super_struct: base }
     }
     pub fn _get_status(&self) -> String {
@@ -19,9 +19,6 @@ impl Done {
     /// It gets the title 
     pub fn get_title(&self) -> String {
         self.super_struct.get_title()
-    }
-    pub fn get_id(&self) -> u32{
-        self.super_struct.get_id()
     }
 }
 

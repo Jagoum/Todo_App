@@ -26,10 +26,11 @@ fn process_pending(
     state: &Map<String, Value>,
     target_state: String,
 ) {
+    // this matches the second argument the user pass in the  command line to the commands.
     let mut state = state.clone();
     match command.as_str() {
         "get" => item.get(&item.get_title(), &state),
-        "delete" => item.delete(&item.get_title(), &mut state),
+        "delete" => item.delete( &item.get_title(), &mut state),
         "edit" => match target_state.to_lowercase().as_str() {
             "done" => item.set_to_done(&item.get_title(), &mut state),
             "todo" => item.set_to_todo(&item.get_title(), &mut state),
@@ -42,7 +43,7 @@ fn process_pending(
         _ => println!("command: {} not supported", command),
     }
 }
-///This function processes done for the repective commands
+///This function processes done for the respective commands
 /// ## example of commands
 /// ```rs
 ///
@@ -52,7 +53,12 @@ fn process_pending(
 ///
 /// ```
 /// > Function take 4 parameters `item`, `command`, and `state` and `target state`
-fn process_done(item: Done, command: String, state: &Map<String, Value>, target_state: String) {
+fn process_done(
+    item: Done,
+    command: String,
+    state: &Map<String, Value>,
+    target_state: String,
+) {
     let mut state = state.clone();
     match command.as_str() {
         "get" => item.get(&item.get_title(), &state),
@@ -72,10 +78,22 @@ fn process_done(item: Done, command: String, state: &Map<String, Value>, target_
     }
 }
 
-fn process_todo(item: Todo, command: String, state: &Map<String, Value>, target_state: String) {
+fn process_todo(
+    item: Todo,
+    command: String,
+    state: &Map<String, Value>,
+    target_state: String,
+) {
+
+
     let mut state = state.clone();
+
     match command.as_str() {
-        "create" => item.create(&item.get_title(), &item.get_status(), &mut state),
+        "create" => item.create(
+            &item.get_title(),
+            &item.get_status(),
+            &mut state
+        ),
 
         "edit" => match target_state.to_lowercase().as_str() {
             "done" => item.set_to_done(&item.get_title(), &mut state),
@@ -88,7 +106,7 @@ fn process_todo(item: Todo, command: String, state: &Map<String, Value>, target_
         },
 
         "get" => item.get(&item.get_title(), &state),
-        "delete" => item.delete(&item.get_title(), &mut state),
+        "delete" => item.delete( &item.get_title(), &mut state),
         _ => println!("Sorry invalid command: {} not supported", command),
     }
 }

@@ -14,7 +14,7 @@ pub fn read_file(file_name: &str) -> Map<String, Value> {
     {
         Ok(file) => file,
         Err(err) => {
-            eprintln!("Could not Open or even create file");
+            eprintln!("Could not Open or even create file {err}");
             return Err("()").unwrap();
         }
     };

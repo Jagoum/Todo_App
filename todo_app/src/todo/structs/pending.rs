@@ -11,8 +11,8 @@ pub struct Pending {
 
 impl Pending {
     ///  creates  pending instance
-    pub fn new(id: u32, title: &str) -> Pending {
-        let super_struct = Base::new(id,title, "Pending");
+    pub fn new( title: &str) -> Pending {
+        let super_struct = Base::new(title, "Pending");
         Pending { super_struct }
     }
     /// This gives the status of the Pending Job
@@ -22,9 +22,6 @@ impl Pending {
     /// THis function gives the title of the Pending Job
     pub fn get_title(&self) -> String {
         self.super_struct.get_title()
-    }
-    pub fn get_id(&self) -> u32{
-        self.super_struct.get_id()
     }
 }
 

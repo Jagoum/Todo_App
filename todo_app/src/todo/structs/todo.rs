@@ -20,7 +20,7 @@ impl Todo {
     }
 }
 
-impl Create for Todo {}
-impl Edit for Todo {}
-impl Delete for Todo {}
-impl Get for Todo {}
+impl Create for Todo {} // The Job Created Is initially set to todo
+impl Edit for Todo {} // A Job Can be edit from todo to done or pending
+impl Delete for Todo {} // A create Job can be deleted
+impl Get for Todo {} // We can get the status of a job with status todo

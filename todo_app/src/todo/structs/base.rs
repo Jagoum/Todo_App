@@ -22,3 +22,14 @@ impl Base {
         self.title.clone()
     }
 }
+#[cfg(test)]
+
+mod test {
+    use super::*;
+    #[test]
+    fn test_base() {
+        let base = Base::new("hello", "Pending");
+        assert_eq!("hello", base.get_title());
+        assert_eq!("pending", base.get_status().to_lowercase());
+    }
+}

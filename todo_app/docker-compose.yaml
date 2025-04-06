@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  build_image: 
+    image: todo_app:slim
+    build:
+      context: .
+      args:
+        ARG: value
+        ARG1: value
+        
+
+  

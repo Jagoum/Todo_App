@@ -12,7 +12,6 @@ pub trait Edit {
     /// Status: "Done"
     /// ```    
     fn set_to_done(&self, title: &String, state: &mut Map<String, Value>) {
-        
         state.insert(title.to_string(), json!(String::from("Done")));
         write_to_file("./state.json", state);
 
@@ -22,7 +21,6 @@ pub trait Edit {
             state.get(title).unwrap_or(&json!(String::from("Done")))
         );
     }
-
 
     /// This function changes the status from what it was to pending
     ///  > Example
@@ -53,7 +51,6 @@ pub trait Edit {
     /// Status: "Todo"
     /// ```
     fn set_to_todo(&self, title: &String, state: &mut Map<String, Value>) {
-
         state.insert(title.to_string(), json!(String::from("Todo")));
         write_to_file("./state.json", state);
 

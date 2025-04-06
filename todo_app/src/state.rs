@@ -2,9 +2,9 @@ use std::{
     fs::{self, OpenOptions},
     io::Read,
 };
-
 use serde_json::{json, Map, Value};
 
+/// This function is used to read and write data into a file it creates the file automatically if it does not exits
 pub fn read_file(file_name: &str) -> Map<String, Value> {
     let mut file = match OpenOptions::new()
         .read(true)

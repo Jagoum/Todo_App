@@ -16,7 +16,7 @@ impl Done {
         self.super_struct.get_status()
     }
     /// Using this method is to avoid the fields of my struct to be accessed directly
-    /// It gets the title 
+    /// It gets the title
     pub fn get_title(&self) -> String {
         self.super_struct.get_title()
     }

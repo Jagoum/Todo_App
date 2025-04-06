@@ -13,6 +13,7 @@ use todo::todo_factory;
 
 #[actix_rt::main]
 async fn main() -> std::io::Result<()> {
+    println!("Server Serving on http://localhost:8000");
     HttpServer::new(|| {
         let app = App::new().configure(views::views_factory);
         return app;
@@ -22,6 +23,8 @@ async fn main() -> std::io::Result<()> {
     .await
 }
 
+/// Allow us to switch back to the command line version.
+#[allow(dead_code)]
 fn cli_todo_initiation() -> ControlFlow<()> {
     let args: Vec<String> = env::args().collect();
     if args.len() < 3 {

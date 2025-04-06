@@ -11,7 +11,7 @@ pub struct Pending {
 
 impl Pending {
     ///  creates  pending instance
-    pub fn new( title: &str) -> Pending {
+    pub fn new(title: &str) -> Pending {
         let super_struct = Base::new(title, "Pending");
         Pending { super_struct }
     }

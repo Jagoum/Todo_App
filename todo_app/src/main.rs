@@ -1,6 +1,7 @@
 mod process;
 mod state;
 mod todo;
+mod json_serialization;
 mod views;
 use actix_web::{App, HttpServer};
 use process::process_input;
